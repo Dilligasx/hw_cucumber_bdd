@@ -11,9 +11,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
 
 public class BrowserFactory {
 
@@ -34,6 +34,7 @@ public class BrowserFactory {
 			e.printStackTrace();
 		}
 	}	
+	@SuppressWarnings("deprecation")
 	@BeforeMethod
 	public static WebDriver init() {
 		readConfig();
@@ -53,7 +54,7 @@ public class BrowserFactory {
 		return driver;
 	}
 
-//	@AfterMethod
+	@AfterMethod
 	public static void tearDown() {
 		driver.close();
 		driver.quit();
